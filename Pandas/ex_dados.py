@@ -7,6 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/1TSoZURI5UZaazXa6o6SHLcFq0D3KEDZO
 """
 
+#Este projeto é um exercício de Pandas para manipulação de dados para o setor de Dados da minha empresa
+#No caso, foi utilizado um dataset com todos os goleiros que jogaram a Champions League 2020/2021
+
 import pandas as pd
 
 goleiros_df = pd.read_csv('ucl goalkeeper.csv')
@@ -36,5 +39,11 @@ display(goleiros_df)
 
 display(goleiros_df.head(10))
 
-brazucas_df = goleiros_df.loc[goleiros_df['Nationality'] == 'BRA', ['Player', 'Nationality', 'Club', 'Champion']]
+brazucas_df = goleiros_df.loc[goleiros_df['Nationality'] == 'BRA']
 display(brazucas_df)
+
+# Criando uma coluna para indicar se o goleiro é brasileiro
+goleiros_df.loc[:, 'Brazuca'] = 0
+
+# Criando uma coluna para indicar se o goleiro é argentino
+goleiros_df.loc[:, 'Argentino'] = 0
